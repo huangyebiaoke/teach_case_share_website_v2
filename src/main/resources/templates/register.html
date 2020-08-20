@@ -1,0 +1,78 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="index :: common_header(~{::meta},~{::link},~{::style})">
+    <meta charset="UTF-8">
+    <title>注册页面</title>
+</head>
+<body>
+<div th:replace="index :: header"></div>
+<div class="panel panel-default" style="width: 90%; margin: 5rem auto">
+    <div class="panel-heading">
+        <h3 class="panel-title">注册页面</h3>
+    </div>
+    <div class="panel-body">
+        <div style="width: 80%; margin: 5rem auto">
+            <form class="form-horizontal"   th:action="@{/register}"  method="POST" onsubmit="return checkLogin();">
+                <div class="form-group">
+                    <label for="username" class="col-sm-2 control-label">username</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="username"  id="username" placeholder="username"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="col-sm-2 control-label" >password</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" name="password" id="password" placeholder="password"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password-again" class="col-sm-2 control-label" >password again</label>
+                    <div class="col-sm-10">
+                        <input type="password" class="form-control" name="password-again" id="password-again" placeholder="password again"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-sm-2 control-label">email</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" name="email"  id="email" placeholder="email"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <input type="submit" value="submit" id="submit" class="btn btn-info" />
+                        &nbsp; &nbsp; &nbsp;
+                        <input type="reset" value="reset" class="btn btn-info" />
+                    </div>
+                </div>
+            </form>
+            <div class="alert alert-info" role="alert" th:if="${message}"><p th:text="${message}">这里显示信息</p></div>
+        </div>
+    </div>
+</div>
+<div th:replace="index :: footer"></div>
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $(".nav li").removeClass("active");
+    });
+    function checkLogin() {
+        if($("#username").val()==""){
+            $("#username").attr("placeholder","username can't be empty!").focus();
+            return false;
+        }else if($("#password").val()==""){
+            $("#password").attr("placeholder","password can't be empty!").focus();
+            return false;
+        }else if($("#password-again").val()!=$("#password").val()){
+            $("#password-again").val("").attr("placeholder","password again is inconsistent!").focus();
+            return false;
+        }else if($("#email").val()=="") {
+            $("#email").attr("placeholder", "please input email for active account!").focus();
+            return false;
+        }else{
+            return true;
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="index :: common_header(~{::meta},~{::link},~{::style})">
+    <meta charset="UTF-8">
+    <title>文字案例</title>
+</head>
+<body>
+<div th:replace="index :: header"></div>
+<div class="panel panel-default" style="width: 90%; margin: 5rem auto">
+    <div class="panel-heading">课程</div>
+    <div class="panel-body">
+        <div class="btn-group" role="group" aria-label="First group">
+            <button type="button" class="btn btn-default active">全部</button>
+            <button type="button" class="btn btn-default">A</button>
+            <button type="button" class="btn btn-default">B</button>
+            <button type="button" class="btn btn-default">C</button>
+            <button type="button" class="btn btn-default">D</button>
+            <button type="button" class="btn btn-default">E</button>
+            <button type="button" class="btn btn-default">F</button>
+            <button type="button" class="btn btn-default">G</button>
+            <button type="button" class="btn btn-default">H</button>
+            <button type="button" class="btn btn-default">I</button>
+            <button type="button" class="btn btn-default">J</button>
+            <button type="button" class="btn btn-default">K</button>
+            <button type="button" class="btn btn-default">L</button>
+            <button type="button" class="btn btn-default">M</button>
+            <button type="button" class="btn btn-default">N</button>
+            <button type="button" class="btn btn-default">O</button>
+            <button type="button" class="btn btn-default">P</button>
+            <button type="button" class="btn btn-default">Q</button>
+            <button type="button" class="btn btn-default">X</button>
+            <button type="button" class="btn btn-default">Y</button>
+            <button type="button" class="btn btn-default">Z</button>
+        </div>
+        <br>
+        <br>
+        <span class="label label-default">计算机概论</span>
+        <span class="label label-primary">概率论与数理统计</span>
+        <span class="label label-success">高等数学（一）</span>
+        <span class="label label-info">几何</span>
+        <span class="label label-warning">算法入门</span>
+        <span class="label label-danger">Java疯狂讲义</span>
+    </div>
+</div>
+<div class="panel panel-default" style="width: 90%;margin: 5rem auto">
+    <div class="panel-heading">文字案例</div>
+    <div class="panel-body">
+        <ul class="nav nav-tabs" style="margin-bottom: 1rem">
+            <li role="presentation" class="active"><a href="#">热度↑</a></li>
+            <li role="presentation"><a href="#">最新↓</a></li>
+        </ul>
+        <ul class="media-list">
+            <li class="media">
+                <div class="media-left">
+                    <span class="media-object glyphicon glyphicon-thumbs-up"  style="font-size: 50px; color: silver;margin: 4px"></span>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">指导学生完成石油软件研制项目3项：</h4>
+                    <p>1.指导老师，指导长江大学国家大学生创新性实验计划项目“基于Java电法测井数值模拟系统研究”(1126)，2011.10-2013.04（结题）。</p>
+                    <p>2.指导老师，指导长江大学国家大学生创新性实验计划项目“水平井轨迹跟踪可视化软件”（104892013025），2014.05-2015.05（结题，获得湖北省教育厅二等奖）。</p>
+                    <p>3.指导老师，指导长江大学国家大学生创新性实验计划项目“基于B/S和C/S混合架构的互联网视频教学系统”（2016083），2016.05-2017.04（结题）。</p>
+                </div>
+            </li>
+            <li class="media">
+                <div class="media-left">
+                    <span class="media-object glyphicon glyphicon-user"  style="font-size: 50px; color: silver;margin: 4px"></span>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">主持相关石油软件研发项目6项：</h4>
+                    <p>1.水平井产出剖面知识库优化解释方法研究，油气资源与勘探技术教育部重点实验室开放基金资助项目(K2013-06)，已结题。</p>
+                    <p>2.水平井多相流产出剖面反演优化解释方法研究及软件实现（Q20141312），湖北省教育厅项目，已结题。</p>
+                    <p>3.产液剖面流体物性大数据获取与处理方法研究，湖北科技厅湖北省科技厅课题(2016CFC738) ，已结题。</p>
+                    <p>4. 生产测井流体物性参数大数据平台研究，油气资源与勘探技术教育部重点实验室开放基金资助项目(K2016-04) ，已结题。</p>
+                    <p>5.博士后基金项目，水平井产出剖面解释技术研究，已结题。</p>
+                    <p>6.中石油创新基金项目，套管间套损套变电磁变化规律研究与精细计算模型设计（2017D-5007-0304）。</p>
+                </div>
+            </li>
+            <li class="media">
+                <div class="media-left">
+                    <span class="media-object glyphicon glyphicon-forward"  style="font-size: 50px; color: silver;margin: 4px"></span>
+                </div>
+                <div class="media-body">
+                    <h4 class="media-heading">参与相关石油软件研发项目11项：</h4>
+                    <p>1.水平井多相流生产测井解释模块开发(08-2011-js-00018)，中国石化集团胜利石油管理局测井公司，2011.06-2012.12（结题）。</p>
+                    <p>2.水平井两相流产液剖面解释软件开发(07-2010-js-00016)，中国石化集团胜利石油管理局测井公司，2010.07-2011.06（结题）。</p>
+                    <p>3.轮南油田生产测井资料解释方法研究与应用(041010120085)，中国石油天然气股份有限公司塔里木油田分公司，2010.12-2011.12（结题）。</p>
+                    <p>4.产出剖面测井解释开发研制(G1117CS-A14C132)，中海油田服务股份有限公司，2011.10-2012.12（结题）。</p>
+                    <p>5.连续测井解释方法研究与软件编制（2011ZX05020-006），“十二五”国家科技重大专项《油气田开发动态监测测井系列技术与装备》子课题，2011.01-2015.12。</p>
+                    <p>6.文昌油田剩余油饱和度生产测井资料解释软件及应用研究（CCL2013ZJFN0906），中海石油（中国）有限公司，2013.08-2014.12（结题）。</p>
+                    <p>7.生产测井注采剖面解释处理方法研究与软件开发，中国石油集团长城钻探工程有限公司测井技术研究院（2013.04-2014.04）（结题）。</p>
+                    <p>8.英买力凝析气田生产测井资料解释方法研究和应用，中国石油天然气股份有限公司塔里木油田分公司，2012.01-2012.12（结题）。</p>
+                    <p>9. PNN测井资料解释方法研究，中海油田服务股份有限公司，2013.07.-2014.06（结题）。</p>
+                    <p>10.油气水三相流生产测井解释技术（85-03-01），中石油集团公司项目（结题）。</p>
+                    <p>11.注水开发油田动态测井模拟及评价方法研究（2000J2-02），中石油集团公司项目（结题）。</p>
+                </div>
+            </li>
+        </ul>
+
+        <nav style="text-align: center" aria-label="Page navigation">
+            <ul class="pagination">
+                <li>
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="active"><a href="#">0</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div th:replace="index :: footer"></div>
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $(".nav li").removeClass("active");
+        $(".nav li:eq(2)").addClass("active");
+    });
+</script>
+</body>
+</html>

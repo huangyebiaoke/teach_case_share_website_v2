@@ -1,0 +1,57 @@
+<!DOCTYPE html >
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="index :: common_header(~{::meta},~{::link},~{::style})">
+    <meta charset="UTF-8">
+    <title>案例企业</title>
+</head>
+<style type="text/css">
+</style>
+<body>
+<div th:replace="index :: header"></div>
+<div class="panel panel-default" style="width: 90%; margin: 5rem auto">
+    <div class="panel-heading">案例企业(合作单位)</div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <img src="https://bkimg.cdn.bcebos.com/pic/503d269759ee3d6df27b329e4e166d224f4ade22?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg" alt="...">
+                    <div class="caption">
+                        <h3>中国石油天然气集团公司</h3>
+                        <p>中国石油天然气集团有限公司（英文缩写China National Petroleum Corporation，中文简称“中国石油”或“中石油”）是国有重要骨干企业，是以油气业务、工程技术服务、石油工程建设、石油装备制造、金融服务、新能源开发等为主营业务的综合性国际能源公司，是中国主要的油气生产商和供应商之一。</p>
+                    </div>
+                    <p><a href="http://www.cnpc.com.cn/cnpc/index.shtml" class="btn btn-primary" role="button">官网</a>&nbsp;&nbsp;&nbsp;<a href="https://baike.baidu.com/item/%E4%B8%AD%E5%9B%BD%E7%9F%B3%E6%B2%B9%E5%A4%A9%E7%84%B6%E6%B0%94%E9%9B%86%E5%9B%A2%E6%9C%89%E9%99%90%E5%85%AC%E5%8F%B8/856681?fromtitle=%E4%B8%AD%E5%9B%BD%E7%9F%B3%E6%B2%B9%E5%A4%A9%E7%84%B6%E6%B0%94%E9%9B%86%E5%9B%A2%E5%85%AC%E5%8F%B8&fromid=804002&fr=aladdin" class="btn btn-default" role="button">百度百科</a></p>
+                </div>
+            </div>
+        </div>
+        <nav style="text-align: center" aria-label="Page navigation">
+            <ul class="pagination">
+                <li>
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li class="active"><a href="#">0</a></li>
+                <li><a href="#">1</a></li>
+                <li><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#">4</a></li>
+                <li>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<div th:replace="index :: footer"></div>
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $(".nav li").removeClass("active");
+        $(".nav li:eq(4)").addClass("active");
+    });
+</script>
+</body>
+</html>

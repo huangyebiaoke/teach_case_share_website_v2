@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="common_header(meta,links,style)">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>教学案例共享平台</title>
+    <link href="/static/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <style type="text/css">
+        .navbar{
+            margin-bottom: 0;
+        }
+        .carousel-inner .item img{
+            margin: 0 auto;
+        }
+
+        .carousel{
+            margin-bottom: 20px;
+        }
+
+        .thumbnail{
+            text-align: center;
+        }
+
+        .thumbnail>.glyphicon{
+            margin-top: 10px;
+            font-size: 50px;
+        }
+
+        footer{
+            height: 54px;
+            width: 100%;
+            background-color: #333333;
+            text-align: center;
+            overflow: hidden;
+        }
+        footer span{
+            color:darkgray;
+            line-height: 54px;
+        }
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-default" th:fragment="header">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://jky.yangtzeu.edu.cn/">
+                <img height="20" alt="Brand" src="/static/img/logo.png">
+            </a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li class="active"><a th:href="@{/}">首页 <span class="sr-only">(current)</span></a></li>
+                <li><a th:href="@{/video-case}">视频案例</a></li>
+                <li><a th:href="@{/text-case}">文字案例</a></li>
+                <li><a th:href="@{/case-specialist}">案例专家</a></li>
+                <li><a th:href="@{/case-enterprise}">案例企业</a></li>
+                <li><a th:href="@{/admin}">管理界面</a></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <form class="navbar-form navbar-left" method="POST" action="/video-case">
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">视频案例 <span class="caret"></span></button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">视频案例</a></li>
+                                <li><a href="#">文字案例</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">案例专家</a></li>
+                                <li><a href="#">案例企业</a></li>
+                            </ul>
+                        </div><!-- /btn-group -->
+                        <input name="videoName" type="text" class="form-control" placeholder="请输入视频名称">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" type="submit"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                        </span>
+                    </div>
+                </form>
+                <li><a href="#" data-toggle="modal" data-target="#login-form"><span class="glyphicon glyphicon-user" aria-hidden="true"></span>登录</a></li>
+                <div id="login-form" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="exampleModalLabel">登录框</h4>
+                            </div>
+                            <form action="/login" method="POST">
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="control-label">email:</label>
+                                        <input name="email" type="email" class="form-control" id="recipient-name">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message-text" class="control-label">password:</label>
+                                        <input name="password" type="password" class="form-control" id="message-text">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                    <button type="submit" class="btn btn-primary">登录</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <li><a href="/register"><span class="glyphicon glyphicon-registration-mark" aria-hidden="true"></span>注册</a></li>
+            </ul>
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+</nav>
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+        <div class="item active" style="background-color: #3ea4f4">
+            <a href="/register"><img src="/static/img/banner1.png" alt="..."></a>
+        </div>
+        <div class="item" style="background-color: #5f3ef4">
+            <img src="/static/img/banner2.png" alt="...">
+        </div>
+        <div class="item" style="background-color: #3ef4d0">
+            <img src="/static/img/banner3.png" alt="...">
+        </div>
+        <div class="item"  style="background-color: #843ef4">
+            <img src="/static/img/banner4.png" alt="...">
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-sm-6 col-md-3">
+        <div class="thumbnail">
+            <span style="color: #6e86ec" class="glyphicon glyphicon-hand-right"></span>
+            <div class="caption">
+                <h3>高校大咖高度评价</h3>
+                <p>教学案例使用评价</p>
+                <p><a href="#" class="btn btn-default" role="button">查看</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+        <div class="thumbnail">
+            <span style="color: #3ea4f4" class="glyphicon glyphicon-user"></span>
+            <div class="caption">
+                <h3>4768 位认证教师</h3>
+                <p>教师审核列表>注册认证教师</p>
+                <p><a href="/case-specialist" class="btn btn-default" role="button">查看</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+        <div class="thumbnail">
+            <span style="color: #54ce4b" class="glyphicon glyphicon-film"></span>
+            <div class="caption">
+                <h3>8248 份案例</h3>
+                <p>层层筛选，为您提供实用案例</p>
+                <p><a href="/video-case" class="btn btn-default" role="button">查看</a></p>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 col-md-3">
+        <div class="thumbnail">
+            <span style="color: #fa6a5a" class="glyphicon glyphicon-print"></span>
+            <div class="caption">
+                <h3>128家案例企业</h3>
+                <p>真实的企业案例，业内经典</p>
+                <p><a href="/case-enterprise" class="btn btn-default" role="button">查看</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="panel panel-default" style="width: 90%;margin: 5rem auto">
+    <div class="panel-heading">
+        <h2 class="panel-title">目标任务</h2>
+    </div>
+    <div class="panel-body">
+        <p class=MsoNormal style='text-indent:28.0pt;line-height:150%;layout-grid-mode:
+  char'><span style='font-size:14.0pt;line-height:150%;font-family:宋体'>改革研究生现状中课程孤立教学的模式，注重各门课程教学内容之间的联系，注重学生知识体系的形成。通过课程教学模式创新、编写高质量案例合理安排教学内容、改革课程评价机制注重教学过程、改进教学方法、建设教学案例库并共享，优化教师队伍。</span></p>
+        <p class=MsoNormal style='line-height:150%;layout-grid-mode:char'><span
+                style='font-size:14.0pt;line-height:150%;font-family:宋体'>（<span lang=EN-US>1</span>）预期成果</span></p>
+        <p class=MsoNormal style='text-indent:28.0pt;line-height:150%;layout-grid-mode:
+  char'><span style='font-size:14.0pt;line-height:150%;font-family:宋体'>①形成<span
+                lang=EN-US>1</span>套《石油软件开发》交叉学科知识培养方案； </span></p>
+        <p class=MsoNormal style='text-indent:28.0pt;line-height:150%;layout-grid-mode:
+  char'><span style='font-size:14.0pt;line-height:150%;font-family:宋体'>②制定<span
+                lang=EN-US>1</span>套适合我院研究生交叉学科相关课程的考核评价体系；</span></p>
+        <p class=MsoNormal style='text-indent:28.0pt;line-height:150%;layout-grid-mode:
+  char'><span style='font-size:14.0pt;line-height:150%;font-family:宋体'>③发表相关教研论文<span
+                lang=EN-US>2-5</span>篇。</span></p>
+        <p class=MsoNormal style='line-height:150%;layout-grid-mode:char'><span
+                style='font-size:14.0pt;line-height:150%;font-family:宋体'>（<span lang=EN-US>2</span>）预期效益</span></p>
+        <p class=MsoNormal style='text-indent:28.0pt;line-height:150%;layout-grid-mode:
+  char'><span style='font-size:14.0pt;line-height:150%;font-family:宋体'>①专业建设效益</span></p>
+        <p class=MsoNormal style='text-indent:28.0pt;line-height:150%;layout-grid-mode:
+  char'><span style='font-size:14.0pt;line-height:150%;font-family:宋体'>以《石油软件开发》课程为对象，从设计教学改革入手，培养学生交叉融合知识体系、提升高端复合型人才综合素养。</span></p>
+        <p class=MsoNormal style='text-indent:28.0pt;line-height:150%;layout-grid-mode:
+  char'><span style='font-size:14.0pt;line-height:150%;font-family:宋体'>②课程建设效益</span></p>
+        <p class=MsoNormal style='text-indent:28.0pt;line-height:150%;layout-grid-mode:
+  char'><span style='font-size:14.0pt;line-height:150%;font-family:宋体'>做好教学特色示范作用，带动其他研究生课程建设。</span></p>
+        <p class=MsoNormal style='text-indent:28.0pt;line-height:150%;layout-grid-mode:
+  char'><span style='font-size:14.0pt;line-height:150%;font-family:宋体'>③师资队伍建设效益</span></p>
+        <p class=MsoNormal style='text-indent:28.0pt;line-height:150%;layout-grid-mode:
+  char'><span style='font-size:14.0pt;line-height:150%;font-family:宋体'>建设一支业务素质精良的专业师资队伍。</span></p>
+        <p class=MsoNormal style='text-indent:28.0pt;line-height:150%;layout-grid-mode:
+  char'><span style='font-size:14.0pt;line-height:150%;font-family:宋体'>④社会服务效益</span></p>
+        <p class=MsoNormal style='text-indent:28.0pt;line-height:150%;layout-grid-mode:
+  char'><span style='font-size:14.0pt;line-height:150%;font-family:宋体'>通过研究研究生优质课程，适当增加研究生课程难度、拓展课程深度、扩大课程可选择性，提升学生培养质量、优化学习氛围，增强其示范作用和社会影响。</span></p>
+    </div>
+</div>
+
+<div class="panel panel-default" style="width: 90%;margin: 5rem auto">
+    <div class="panel-heading">
+        <h2 class="panel-title">建设举措</h2>
+    </div>
+    <div class="panel-body">
+        <p class=MsoNormal style='layout-grid-mode:char'><span style='font-family:
+  宋体'>（包括但不限于高质量案例编写、教学模式创新、课程评价机制改革、案例库建设与共享等方面，<span lang=EN-US>500</span>字以内）</span></p>
+        <p class=MsoNormal style='line-height:150%;layout-grid-mode:char'><span
+                style='font-size:14.0pt;line-height:150%;font-family:宋体'>（<span lang=EN-US>1</span>）教学模式创新</span></p>
+        <p class=MsoNormal style='text-indent:28.0pt;line-height:150%;layout-grid-mode:
+  char'><span style='font-size:14.0pt;line-height:150%;font-family:宋体'>在课程实践中，增加课程设计综合训练内容，使学生能够掌握课程内容之间的逻辑关系和衔接次序，培养具有“学科交叉融合的综合业务素质”高端人才。</span></p>
+        <p class=MsoNormal style='text-indent:28.0pt;line-height:150%;layout-grid-mode:
+  char'><span style='font-size:14.0pt;line-height:150%;font-family:宋体'>①对实践性极强的课程设计内容使用演示型多媒体技术，以动画形式展现抽象的知识点，增强学生感性认识，有利于学生对重点内容的掌握和难点内容的理解；</span></p>
+        <p class=MsoNormal style='text-indent:28.0pt;line-height:150%;layout-grid-mode:
+  char'><span style='font-size:14.0pt;line-height:150%;font-family:宋体'>②理论与实例相结合，选择恰当的案例、进行实例剖析，使学生切身感受到软件项目管理现场的实际需求和急需解决的主要问题。</span></p>
+        <p class=MsoNormal style='text-indent:28.0pt;line-height:150%;layout-grid-mode:
+  char'><span style='font-size:14.0pt;line-height:150%;font-family:宋体'>③实施“先模拟，后实践”二步教学方法，循序渐进地提高学生对综合训练内容的掌握，增强软件管理全局意识。</span></p>
+        <p class=MsoNormal style='text-indent:28.0pt;line-height:150%;layout-grid-mode:
+  char'><span style='font-size:14.0pt;line-height:150%;font-family:宋体'>（<span
+                lang=EN-US>2</span>）根据多年石油软件研发积累的教学案例，编写适合我院研究生教学的高质量案例教材，合理安排教学内容。相关教学案例见附件清单。</span></p>
+        <p class=MsoNormal style='text-indent:28.0pt;line-height:150%;layout-grid-mode:
+  char'><span style='font-size:14.0pt;line-height:150%;font-family:宋体'>（<span
+                lang=EN-US>3</span>）建立科学的课程评价考核机制，强调研究生教学过程的考核。</span></p>
+        <p class=MsoNormal style='text-indent:28.0pt;line-height:150%;layout-grid-mode:
+  char'><span style='font-size:14.0pt;line-height:150%;font-family:宋体'>（<span
+                lang=EN-US>4</span>）实施“虚拟现实”和“实践体会”二步教学方法，帮助学生形成知识体系。</span></p>
+        <p class=MsoNormal style='text-indent:28.0pt;line-height:150%;layout-grid-mode:
+  char'><span style='font-size:14.0pt;line-height:150%;font-family:宋体'>（<span
+                lang=EN-US>5</span>）形成《石油软件开发》教学案例库，并在研究生教学过程中实现共享。</span></p>
+        <p class=MsoNormal style='text-indent:28.0pt;line-height:150%;layout-grid-mode:
+  char'><span style='font-size:14.0pt;line-height:150%;font-family:宋体'>（<span
+                lang=EN-US>6</span>）实施计划：</span></p>
+        <p class=MsoNormal style='margin-left:21.0pt;line-height:200%;layout-grid-mode:
+  char'><span lang=EN-US style='line-height:200%;font-family:宋体'>2020</span><span
+                style='line-height:200%;font-family:宋体'>年<span lang=EN-US>4</span>月――<span
+                lang=EN-US>2020</span>年<span lang=EN-US>6</span>月<span lang=EN-US>&nbsp; </span>课程教学过程调研与分析。</span></p>
+        <p class=MsoNormal style='margin-left:21.0pt;line-height:200%;layout-grid-mode:
+  char'><span lang=EN-US style='line-height:200%;font-family:宋体'>2020</span><span
+                style='line-height:200%;font-family:宋体'>年<span lang=EN-US>7</span>月――<span
+                lang=EN-US>2020</span>年<span lang=EN-US>9</span>月 &nbsp;教学案例编写、教学模式创新、课程评价机制研究。</span></p>
+        <p class=MsoNormal style='margin-left:21.0pt;line-height:200%;layout-grid-mode:
+  char'><span lang=EN-US style='line-height:200%;font-family:宋体'>2020</span><span
+                style='line-height:200%;font-family:宋体'>年<span lang=EN-US>10</span>月――<span
+                lang=EN-US>2020</span>年<span lang=EN-US>12</span>月<span lang=EN-US>&nbsp; </span>教学案例库建设、教学团队建设、人才培养模式研究。</span></p>
+        <p class=MsoNormal style='margin-left:21.0pt;line-height:200%;layout-grid-mode:
+  char'><span lang=EN-US style='line-height:200%;font-family:宋体'>2021</span><span
+                style='line-height:200%;font-family:宋体'>年<span lang=EN-US>1</span>月――<span
+                lang=EN-US>2021</span>年<span lang=EN-US>3</span>月 <span lang=EN-US>&nbsp;&nbsp;</span>完成预期成果，教改方案、课程考核评价体系。</span></p>
+    </div>
+</div>
+
+<div class="panel panel-default" style="width: 90%;margin: 5rem auto">
+    <div class="panel-heading">
+        <h2 class="panel-title">培养单位意见</h2>
+    </div>
+    <div class="panel-body">
+        <p class=MsoNormal style='text-indent:28.0pt;line-height:150%;layout-grid-mode:
+  char'><span style='font-size:14.0pt;line-height:150%;font-family:宋体'>学院对研究生教学研究项目非常重视，能促进教学工作和提高研究生教育质量，学院有相应的政策支持、资金支持和组织保障。</span></p>
+        <p class=MsoNormal style='text-indent:28.0pt;line-height:150%;layout-grid-mode:
+  char'><span style='font-size:14.0pt;line-height:150%;font-family:宋体'>同意申报！</span></p>
+        <p class=MsoNormal align=left style='text-align:left;text-indent:28.0pt;
+  line-height:150%;layout-grid-mode:char'><span lang=EN-US style='font-size:
+  14.0pt;line-height:150%;font-family:宋体'>&nbsp;</span></p>
+        <p class=MsoNormal align=center style='margin-right:56.0pt;text-align:center;
+  text-indent:196.0pt;line-height:150%;layout-grid-mode:char'><span
+                style='font-size:14.0pt;line-height:150%;font-family:宋体'>负责人签名：<span
+                lang=EN-US>&nbsp; </span></span></p>
+        <p class=MsoNormal align=left style='text-align:left;text-indent:280.0pt;
+  line-height:150%;layout-grid-mode:char'><span lang=EN-US style='font-size:
+  14.0pt;line-height:150%;font-family:宋体'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  </span></p>
+        <p class=MsoNormal align=left style='text-align:left;text-indent:238.0pt;
+  line-height:150%;layout-grid-mode:char'><span lang=EN-US style='font-size:
+  14.0pt;line-height:150%;font-family:宋体'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  2020 </span><span style='font-size:14.0pt;line-height:150%;font-family:宋体'>年<span
+                lang=EN-US>4</span>月<span lang=EN-US>21</span>日</span></p>
+    </div>
+</div>
+
+<footer th:fragment="footer">
+        <span>
+            CopyRight © 教学案例共享平台 2020-2066&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspICP备案许可证：赣ICP备17011914号
+        </span>
+</footer>
+<script src="/static/js/jquery.min.js"></script>
+<script src="/static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+</body>
+</html>

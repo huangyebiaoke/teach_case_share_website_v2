@@ -1,0 +1,13 @@
+upload:
+  qiniu:
+    domain: http://qiniu.madeai.cn/
+    access-key: JbtZMdv-pbhCQ-HbfkAkTDk5wGUXKi6f5Y6gnHKg
+    secret-key: rz2KkbkNwwdyOkCWligexnkfapvan6I55rOdVNR0
+    bucket: madeai
+
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 600MB
+      max-request-size: 4GB
