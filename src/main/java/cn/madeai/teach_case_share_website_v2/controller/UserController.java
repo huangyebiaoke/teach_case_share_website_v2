@@ -52,7 +52,7 @@ public class UserController {
 
     @Autowired
     private MailService mailService;
-    @Value("${server.address.customize}:${server.port}")
+    @Value("${server.address.customize}")
     private String localhostName;
     @PostMapping("/register")
     public String register(UserInfo user, RedirectAttributes attributes) throws UnsupportedEncodingException, NoSuchAlgorithmException {

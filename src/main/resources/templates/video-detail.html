@@ -52,23 +52,23 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">其他页面 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="/">首页</a></li>
-                        <li><a href="/video-case">视频案例</a></li>
-                        <li><a href="/text-case">文字案例</a></li>
+                        <li><a th:href="@{/}">首页</a></li>
+                        <li><a th:href="@{/video-case}">视频案例</a></li>
+                        <li><a th:href="@{/text-case}">文字案例</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="/case-specialist">案例专家</a></li>
-                        <li><a href="/case-enterprise">案例企业</a></li>
+                        <li><a th:href="@{/case-specialist}">案例专家</a></li>
+                        <li><a th:href="@{/case-enterprise}">案例企业</a></li>
                     </ul>
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a></li>
+                <li><a th:href="@{/}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
 </nav>
 <ul class="breadcrumb">
-    <li><a href="/video-case">视频案例</a></li>
+    <li><a th:href="@{/video-case}">视频案例</a></li>
     <li><a href="#">视频详情</a></li>
     <li class="active" th:text="${videoInfo.videoId}">videoId</li>
 </ul>
@@ -85,26 +85,26 @@
         <h3 class="panel-title">视频详情</h3>
     </div>
     <div class="panel-body">
-        <img id="cover" class="cover" src="/static/img/tumbnails/cover1.jpg">
+        <img id="cover" class="cover" th:src="@{/static/img/tumbnails/cover1.jpg}">
         <br>
         <h3 id="title" class="title" th:text="${videoInfo.videoName}">title</h3>
         <p id="summary" class="summary" th:text="${videoInfo.description}">This is a test summary.</p>
     </div>
 </div>
 <div th:replace="index :: footer"></div>
-<script src="/static/js/jquery.min.js"></script>
-<script src="/static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
-<script src="/static/js/DPlayer.min.js"></script>
+<script th:src="@{/static/js/jquery.min.js}"></script>
+<script th:src="@{/static/bootstrap-3.3.7-dist/js/bootstrap.min.js}"></script>
+<script th:src="@{/static/js/DPlayer.min.js}"></script>
 <script>
     $(document).ready(function(){
         const dp = new DPlayer({
             container: document.getElementById('dplayer'),
             screenshot: true,
-            logo: '/static/img/logo-mini.png',
+            logo: '/teach/static/img/logo-mini.png',
             video: {
                 url: '[[${videoInfo.url}]]',
-                pic: '/static/img/tumbnails/cover[[${videoInfo.videoId%8}]].jpg',
-                thumbnails: '/static/img/tumbnails/cover[[${videoInfo.videoId%8}]].jpg',
+                pic: '/teach/static/img/tumbnails/cover[[${videoInfo.videoId%8}]].jpg',
+                thumbnails: '/teach/static/img/tumbnails/cover[[${videoInfo.videoId%8}]].jpg',
             }
         });
     });

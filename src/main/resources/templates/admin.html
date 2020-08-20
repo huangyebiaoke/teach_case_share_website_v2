@@ -24,18 +24,18 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">其他页面 <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="/">首页</a></li>
-                        <li><a href="/video-case">视频案例</a></li>
-                        <li><a href="/text-case">文字案例</a></li>
+                        <li><a th:href="@{/}">首页</a></li>
+                        <li><a th:href="@{/video-case}">视频案例</a></li>
+                        <li><a th:href="@{/text-case}">文字案例</a></li>
                         <li role="separator" class="divider"></li>
-                        <li><a href="/case-specialist">案例专家</a></li>
-                        <li><a href="/case-enterprise">案例企业</a></li>
+                        <li><a th:href="@{/case-specialist}">案例专家</a></li>
+                        <li><a th:href="@{/case-enterprise}">案例企业</a></li>
                     </ul>
                 </li>
                 <li><a href="#">欢迎你的登录，<strong th:text="${session.user.username}"></strong></a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/admin/logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>logout</a></li>
+                <li><a th:href="@{/admin/logout}"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>logout</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
@@ -53,7 +53,7 @@
             </ul>
         </div>
         <div class="col-md-6">
-            <form style="width: 300px;margin: 0 auto;" id="file-table" class="input-group" method="POST" enctype="multipart/form-data" action="/admin/videos">
+            <form style="width: 300px;margin: 0 auto;" id="file-table" class="input-group" method="POST" enctype="multipart/form-data" th:action="@{/admin/videos}">
                 <input type="file" name="file" id="file" multiple="multiple"/>
                 <span class="input-group-btn">
                 <input class="btn btn-default" type="submit" id="file-button" value="Upload" />
@@ -90,17 +90,17 @@
     <nav style="text-align: center" aria-label="Page navigation">
         <ul class="pagination">
             <li>
-                <a th:href=@{/admin(page=${videoInfos.hasPrevious()}?${videoInfos.getNumber()}-1:0)} aria-label="Previous">
+                <a th:href=@{admin(page=${videoInfos.hasPrevious()}?${videoInfos.getNumber()}-1:0)} aria-label="Previous">
                     <span aria-hidden="true">&laquo;</span>
                 </a>
             </li>
-            <li class="active"><a href="/admin?page=0">0</a></li>
-            <li><a href="/admin?page=1">1</a></li>
-            <li><a href="/admin?page=2">2</a></li>
+            <li class="active"><a href="admin?page=0">0</a></li>
+            <li><a href="admin?page=1">1</a></li>
+            <li><a href="admin?page=2">2</a></li>
             <li><a href="#">3</a></li>
             <li><a href="#">4</a></li>
             <li>
-                <a th:href=@{/admin(page=${videoInfos.hasNext()}?${videoInfos.getNumber()}+1:${videoInfos.totalPages-1})} aria-label="Next">
+                <a th:href=@{admin(page=${videoInfos.hasNext()}?${videoInfos.getNumber()}+1:${videoInfos.totalPages-1})} aria-label="Next">
                     <span aria-hidden="true">&raquo;</span>
                 </a>
             </li>
@@ -108,8 +108,8 @@
     </nav>
 </div>
 <div th:replace="index :: footer"></div>
-<script src="/static/js/jquery.min.js"></script>
-<script src="/static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+<script src="static/js/jquery.min.js"></script>
+<script src="static/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
 <script>
 $(document).ready(function () {
     $(".pagination li").removeClass("active");
@@ -128,7 +128,7 @@ $(document).ready(function () {
             });
             $.ajax({
                 type: "PUT",
-                url: "/admin/videos",
+                url: "/teach/admin/videos",
                 data: JSON.stringify({ videoId: $(this).parent().siblings(".video-id").html(),userId: $(this).parent().siblings(".user-id").html(),url: $(this).parent().siblings(".url").html(),type: $(this).parent().siblings(".type").html(),videoName: $(this).parent().siblings(".video-name").html(),description: $(this).parent().siblings(".description").html()}),
                 dataType: "json",
                 contentType: "application/json;charset=utf-8",
@@ -143,7 +143,7 @@ $(document).ready(function () {
     $(".delete").click(function(){
         $.ajax({
             type: "DELETE",
-            url: "/admin/videos",
+            url: "/teach/admin/videos",
             data: { videoId: $(this).parent().siblings(".video_id").html()},
             dataType: "json",
             success: function (mes) {
