@@ -55,13 +55,18 @@ public class UserController {
     @Value("${server.address.customize}")
     private String localhostName;
     @PostMapping("/register")
-    public String register(UserInfo user, RedirectAttributes attributes) throws UnsupportedEncodingException, NoSuchAlgorithmException {
-        user.setRegTime(new Date());
-        user.setPassword(StringUtil.encodeByMD5(user.getPassword()));
-        userInfoService.save(user);
-        attributes.addFlashAttribute("message","注册账号成功，已经给您的邮箱发送一条激活邮件，请查收!");
-        mailService.sendHtmlMail(user.getEmail(),"教学案例共享平台","<h1>恭喜您注册成功！</h1><p>点击以下链接激活账号</p><a href='"+localhostName+"/register/active?username="+user.getUsername()+"&status=1'>点击此链接激活</a>");
-        return "redirect:/register";
+    public String register(UserInfo user, RedirectAttributes attributes) {
+       try{
+           user.setRegTime(new Date());
+           user.setPassword(StringUtil.encodeByMD5(user.getPassword()));
+           userInfoService.save(user);
+           attributes.addFlashAttribute("message","注册账号成功，已经给您的邮箱发送一条激活邮件，请查收!");
+           mailService.sendHtmlMail(user.getEmail(),"教学案例共享平台","<h1>恭喜您注册成功！</h1><p>点击以下链接激活账号</p><a href='"+localhostName+"/register/active?username="+user.getUsername()+"&status=1'>点击此链接激活</a>");
+           return "redirect:/register";
+       }catch (Exception e){
+           attributes.addFlashAttribute("message",e.getMessage());
+            return "redirect:/error-page";
+       }
     }
 
     @GetMapping("/register/active")
@@ -72,10 +77,10 @@ public class UserController {
 //        active success;
         if(userInfoService.modifyStatusByUsername(status,username)){
             response.getWriter().println("激活成功，3秒后跳转到首页！");
-            response.setHeader("refresh","3;/");
+            response.setHeader("refresh","3;/teach");
         }else {
             response.getWriter().println("激活失败，3秒后跳转到注册页面！");
-            response.setHeader("refresh","3;/register");
+            response.setHeader("refresh","3;/teach/register");
         }
     }
 
@@ -118,7 +123,7 @@ public class UserController {
     @GetMapping("/admin")
     public String admin(@RequestParam(defaultValue = "0") Integer page,@RequestParam(defaultValue = "10") Integer size, Model model,HttpSession session){
 //        Sort sort =new Sort(Sort.Direction.DESC, "videoId");
-        Pageable pageable = PageRequest.of(page, size,Sort.Direction.ASC,"videoId");
+        Pageable pageable = PageRequest.of(page, size,Sort.Direction.DESC,"videoId");
         Page<VideoInfo> videoInfos=videoInfoService.findByUserId(pageable,((UserInfo)session.getAttribute("user")).getUserId());
         model.addAttribute("videoInfos",videoInfos);
         return "admin";
