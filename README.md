@@ -24,7 +24,17 @@
     - A:
 - Q:RedirectAttributes&ModelAttribute 
     - A:
-    
+#### 11:04 2020/8/21
+<detail>
+- git reflog
+- git checkout e0aa54a
+- git status
+    - HEAD detached at e0aa54a
+- git checkout -b temp
+- git checkout master
+- git merge temp
+- git branch -D temp
+</detail>
 ### thanks
 - [spring-boot-examples](https://github.com/ityouknow/spring-boot-examples)
 - [china_school_badge](https://github.com/lovefc/china_school_badge)
