@@ -3,7 +3,6 @@ package cn.madeai.teach_case_share_website_v2.controller;
 import cn.madeai.teach_case_share_website_v2.entity.VideoInfo;
 import cn.madeai.teach_case_share_website_v2.service.VideoInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

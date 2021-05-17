@@ -144,7 +144,7 @@ $(document).ready(function () {
         $.ajax({
             type: "DELETE",
             url: "/admin/videos",
-            data: { videoId: $(this).parent().siblings(".video_id").html()},
+            data: { videoId: $(this).parent().siblings(".video-id").html()},
             dataType: "json",
             success: function (mes) {
                 if (mes == null) {

@@ -2,10 +2,12 @@ package cn.madeai.teach_case_share_website_v2.service;
 
 import cn.madeai.teach_case_share_website_v2.dao.VideoInfoRepository;
 import cn.madeai.teach_case_share_website_v2.entity.VideoInfo;
+import com.google.gson.Gson;
 import com.qiniu.http.Response;
 import com.qiniu.storage.Configuration;
 import com.qiniu.storage.Region;
 import com.qiniu.storage.UploadManager;
+import com.qiniu.storage.model.DefaultPutRet;
 import com.qiniu.util.Auth;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -51,7 +53,22 @@ public class VideoInfoService {
         String fileKey = UUID.randomUUID().toString()+suffix;
         try {
             Response response = uploadManager.put(multipartFile.getInputStream(), fileKey, token, null, null);
-        } catch (IOException e) {
+            DefaultPutRet putRet = new Gson().fromJson(response.bodyString(), DefaultPutRet.class);
+            System.out.println(putRet.key);
+            System.out.println(putRet.hash);
+//        } catch (QiniuException ex) {
+//            Response r = ex.response;
+//            System.err.println(r.toString());
+//            try {
+//                System.err.println(r.bodyString());
+//            } catch (QiniuException ex2) {
+//                ex2.printStackTrace();
+//                //ignore
+//            }
+//        }catch (UnsupportedEncodingException ex) {
+//            ex.printStackTrace();
+//            //ignore
+        }catch (IOException e){
             e.printStackTrace();
             return false;
         }finally {

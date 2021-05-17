@@ -1,6 +1,6 @@
 package cn.madeai.teach_case_share_website_v2.util;
 
-import sun.misc.BASE64Encoder;
+import Decoder.BASE64Encoder;
 
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
